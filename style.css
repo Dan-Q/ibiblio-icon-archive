@@ -1,0 +1,96 @@
+.no-js .requires-js {
+  display: none;
+}
+
+.icons {
+  display: grid;
+  grid-template-columns: repeat(8, 64px);
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  background: silver;
+  font-family: monospace;
+  font-size: 12px;
+  text-align: center;
+  width: 548px;
+  height: 660px;
+}
+
+.icon {
+  width: 64px;
+  height: 78px;
+  padding: 0;
+}
+
+.icon-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.icon-img {
+  height: 64px;
+  width: 64px;
+
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+  }
+}
+
+.icon-size {
+  text-decoration: none;
+  color: black;
+  padding-top: 1px;
+}
+
+.pagination {
+  display: flex;
+  font-size: 24px;
+  gap: 6px;
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  width: 548px;
+  justify-content: center;
+
+  a, .disabled, .current {
+    text-decoration: none;
+    border: 1px solid gray;
+    background: silver;
+    border-radius: 4px;
+    padding: 2px 4px;
+  }
+
+  .current {
+    color: white;
+    background: black;
+  }
+}
+
+.page-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  list-style: none;
+  margin: 12px;
+  padding: 0;
+}
+
+#search-results {
+  display: none;
+  height: auto;
+
+  &:has(li) {
+    display: grid;
+  }
+
+  .icon {
+    height: 92px;
+  }
+}
+
