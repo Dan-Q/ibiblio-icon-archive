@@ -25,7 +25,7 @@
       <p>Basic filename search is available:</p>
       <p><input type="search" id="search" aria-label="Search term" /></p>
       <script type="text/json" id="search-data">
-        <%= all_icons.map{|icon| icon['short'] = icon['name'].split('/')[-1].gsub(/\.gif$/,''); icon}.to_json %>
+        <%= all_icons.map{|icon| icon['short'] = icon['name'].split('/')[-1].gsub(/\.gif$/,'').downcase; icon}.to_json %>
       </script>
       <ul id="search-results" class="icons"></ul>
     </section>
