@@ -1,3 +1,7 @@
+img {
+  image-rendering: pixelated;
+}
+
 .no-js .requires-js {
   display: none;
 }
