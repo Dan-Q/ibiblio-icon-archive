@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ibiblio Icon Archive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="no-js">
+  <header>
+    <h1>Ibiblio Icon Archive</h1>
+  <header>
+  <main>
+    <section>
+      <h2>The Icons</h2>
+      <p>Choose a page to start browsing:</p>
+      <ul class="page-list">
+        <% collections.each_with_index do |collection, index| %>
+          <li><a href="icons/<%= index + 1 %>.html"><%= index + 1 %></a></li>
+        <% end %>
+      </ul>
+    </section>
+    <section class="requires-js">
+      <h2>Search</h2>
+      <p>Basic filename search is available:</p>
+      <p><input type="search" id="search" aria-label="Search term" /></p>
+      <script type="text/json" id="search-data">
+        <%= all_icons.map{|icon| icon['short'] = icon['name'].split('/')[-1].gsub(/\.gif$/,''); icon}.to_json %>
+      </script>
+      <ul id="search-results" class="icons"></ul>
+    </section>
+    <section>
+      <h2>History</h2>
+      <p>
+        Originally found at <a href="https://www.ibiblio.org/gio/iconbrowser/">https://www.ibiblio.org/gio/iconbrowser/</a>, this
+        icon archive was in 2026 extracted by <a href="https://danq.me/">Dan Q</a> to make it more-usable on modern browsers.
+      </p>
+    </section>
+  </main>
+
+  <script src="magic.js"></script>
+</body>
+</html>

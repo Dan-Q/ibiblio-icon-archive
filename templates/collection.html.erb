@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ibiblio Icon Archive | Page <%= collection %></title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>Ibiblio Icon Archive - Page <%= collection %></h1>
+  <header>
+  <main>
+    <ul class="icons">
+      <% icons.each do |icon| %>
+        <li class="icon">
+          <a class="icon-link" href="../<%= icon['name'] %>" title="<%= icon['name'].split('/')[-1] %>">
+            <span class="icon-img">
+              <img src="../<%= icon['name'] %>" width="<%= icon['size'][0] %>" height="<%= icon['size'][1] %>">
+            </span>
+            <span class="icon-size"><%= icon['size'][0] %>x<%= icon['size'][1] %></span>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+
+    <ul class="pagination">
+      <li>
+        <% if collection > 1 %>
+          <a href="1.html" title="First page">&lt;&lt;</a>
+        <% else %>
+          <span class="disabled">&lt;&lt;</span>
+        <% end %>
+      </li>
+      <li>
+        <% if collection > 1 %>
+          <a href="<%= collection - 1 %>.html" title="Previous" rel="prev">&lt;</a>
+        <% else %>
+          <span class="disabled">&lt;</span>
+        <% end %>
+      </li>
+      <% (([collection - 3, 1].max)..([collection + 3, collections.length].min)).each do |page| %>
+        <li>
+          <% if page == collection %>
+            <span class="current"><%= page %></span>
+          <% else %>
+            <a href="<%= page %>.html"><%= page %></a>
+          <% end %>
+        </li>
+      <% end %>
+      <li>
+        <% if collection < collections.length %>
+          <a href="<%= collection + 1 %>.html" title="Next" rel="next">&gt;</a>
+        <% else %>
+          <span class="disabled">&gt;</span>
+        <% end %>
+      </li>
+      <li>
+        <% if collection < collections.length %>
+          <a href="<%= collections.length %>.html" title="Last page">&gt;&gt;</a>
+        <% else %>
+          <span class="disabled">&gt;&gt;</span>
+        <% end %>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>
